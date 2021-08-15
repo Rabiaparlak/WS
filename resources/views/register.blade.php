@@ -54,12 +54,12 @@
                                         </div>
                                     </div>
                                     <div class="mt-4 mb-0">
-                                        <div class="d-grid"><a class="btn btn-dark btn-block" href="login.html">Hesap Oluştur</a></div>
+                                        <div class="d-grid"><a class="btn btn-dark btn-block" href="{{route('giris')}}">Hesap Oluştur</a></div>
                                     </div>
                                 </form>
                             </div>
                             <div class="card-footer text-center py-3">
-                                <div class="small"><a href="login.html">Hesabım var? Girişe git</a></div>
+                                <div class="small"><a href="{{route('giris')}}">Hesabım var? Girişe git</a></div>
                             </div>
                         </div>
                     </div>

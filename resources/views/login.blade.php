@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                         <a class="small" href="{{route('password')}}">Parolayı unuttum?</a>
-                                        <a class="btn btn-dark" href="index.html">Giriş</a>
+                                        <a class="btn btn-dark" href="{{route('yonetim.index')}}">Giriş</a>
                                     </div>
                                 </form>
                             </div>

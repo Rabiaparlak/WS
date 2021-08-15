@@ -28,12 +28,12 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                         <a class="small" href="{{route('giris')}}">Girişe  geri dön</a>
-                                        <a class="btn btn-dark" href="login.html">Parolayı sıfırla</a>
+                                        <a class="btn btn-dark" href="{{route('giris')}}">Parolayı sıfırla</a>
                                     </div>
                                 </form>
                             </div>
                             <div class="card-footer text-center py-3">
-                                <div class="small"><a href="register.html">Hesabım yok? Kaydol!</a></div>
+                                <div class="small"><a href="{{route('register')}}">Hesabım yok? Kaydol!</a></div>
                             </div>
                         </div>
                     </div>
