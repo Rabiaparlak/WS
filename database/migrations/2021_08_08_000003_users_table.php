@@ -11,8 +11,7 @@ class UsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-             $table->unsignedBigInteger('role_id');
-
+            $table->unsignedBigInteger('role_id');
             $table->string('name');
             $table->string('surname');
             $table->string('email')->unique();
@@ -23,8 +22,7 @@ class UsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-
-              $table->foreign('role_id')->on('roles')->references('id');
+          $table->foreign('role_id')->on('roles')->references('id')->onDelete('cascade');
 
         });
     }

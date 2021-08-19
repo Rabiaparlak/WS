@@ -18,8 +18,8 @@ class SkillsTable extends Migration
             $table->unsignedBigInteger('user_id');
 
             $table->string('skill_name');
-            $table->timestamp('succes');
-            $table->binary('skills_photo');
+            $table->timestamp('success');
+            $table->binary('skill_photo');
             $table->timestamps();
 
             $table->foreign('user_id')->on('users')->references('id');
