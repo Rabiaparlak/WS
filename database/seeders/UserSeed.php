@@ -12,13 +12,7 @@ class UserSeed extends Seeder
     public function run()
     {
         DB::table('roles')->insert([
-            'role_name'=>'Admin',
-        ]);
-        DB::table('roles')->insert([
-            'role_name'=>'admin'
-        ]);
-        DB::table('roles')->insert([
-            'role_name'=>'misafir',
+            'role_name'=>'admin',
         ]);
         DB::table('roles')->insert([
             'role_name'=>'misafir'
@@ -55,7 +49,7 @@ class UserSeed extends Seeder
             'photo'=>'swdewe',
             'social_media'=>'www.ghjkkl.com.tr',
             'remember_token'=>md5('0988765433'),
-            'role_id'=>3,
+            'role_id'=>1,
         ]);
         DB::table('users')->insert([
             'name'=>'Ali',
@@ -66,7 +60,7 @@ class UserSeed extends Seeder
             'photo'=>'jhgfds',
             'social_media'=>'www.jhgfds.com.tr',
             'remember_token'=>md5('jhgfds'),
-            'role_id'=>3,
+            'role_id'=>2,
         ]);
     }
 }

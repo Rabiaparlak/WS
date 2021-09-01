@@ -24,7 +24,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Ayarlar</a></li>
+                <li><a class="dropdown-item" href="{{route('ayarlar')}}">Ayarlar</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="#!">Çıkış Yap</a></li>
             </ul>
@@ -79,13 +79,15 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         Ziyaretçiye Not
                     </a>
-
                 </div>
             </div>
+            @foreach($kullanici as $kullan)
+
             <div class="sb-sidenav-footer">
-                <div class="small">X</div>
+                <div class="small">  {{$kullan->name}}</div>
                 Tasarımıyla
             </div>
+            @endforeach
         </nav>
     </div>
     <div id="layoutSidenav_content">
@@ -99,8 +101,8 @@
                         <a href="#">Privacy Policy</a>
                         &middot;
                         <a href="#">Terms &amp; Conditions</a>
-                    </div>-->
-                </div>
+                    </div>
+                </div>-->
             </div>
         </footer>
     </div>

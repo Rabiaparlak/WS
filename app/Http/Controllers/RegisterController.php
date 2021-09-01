@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
+use function PHPUnit\Framework\returnArgument;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 class RegisterController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,11 +20,35 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function gonder(Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+            'surname'=>'required',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|min:6|confirmed'
+        ]);
+
+        $query = DB::table('users')->insert([
+
+            //'role_id'=>$request->input('role_id'),
+            'role_id'=>$request->input('role_id','1'),
+            'name'=>$request->input('name'),
+            'surname'=>$request->input('surname'),
+            'email'=>$request->input('email'),
+            'password'=>Hash::make($request->password),
+
+        ]);
+        return redirect('giris');
+        /*
+        if($query){
+            return back()->with('succes','kayıt başarılı');
+        } else{
+            return back()->with('fail','yanlış giden bişeyler var');
+        }
+        */
+
+    }
     public function create()
     {
         //
@@ -34,7 +62,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

@@ -18,7 +18,7 @@ class User extends Model
 
     //belongsto hasone hasmany
     public function getRole(){
-        return $this->hasOne('App\Models\Role','role_id','id');
+        return $this->belongsTo('App\Models\Role','role_id','id');
     }
     public function getSkill(){
         return $this->hasMany('App\Models\Skill','user_id','id');

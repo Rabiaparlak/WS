@@ -11,7 +11,6 @@ class SkillSeed extends Seeder
     {
         DB::table('skills')->insert([
             'skill_name'=>'Python',
-            'success'=>'5',
             'skill_photo'=>'assas',
             'user_id'=>1,
         ]);

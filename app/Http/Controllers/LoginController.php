@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /**
@@ -13,14 +14,36 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('login');
-    }
+        $kullanici=User::all();
+        return view('login',compact('kullanici'));
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    }
+    public function post(Request $request)
+
+    {
+
+        //$array = ['email'=>$request->email, 'password'=>$request->password];
+        //$kullanici=User::where($array)->first();
+        $kullanici =
+            User::where('email', '=', $request->email)
+                ->where('password', '=', $request->password)
+                ->first();
+
+
+        if (!$kullanici) {
+            echo "Kullanıcı bulunamadı";
+        } else {
+            //echo $kullanici;
+            $kullanici=User::all();
+            $kullanici->name=$request->name;
+            $kullanici->password=$request->password;
+            return redirect()->route('yonetim.index');
+       }
+
+
+
+
+    }
     public function create()
     {
         //

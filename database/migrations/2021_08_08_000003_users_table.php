@@ -16,13 +16,13 @@ class UsersTable extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone_number')->unique();
-            $table->binary('photo');
-            $table->string('social_media');
+            $table->string('phone_number')->unique()->nullable();
+            $table->binary('photo')->nullable();
+            $table->string('social_media')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-          $table->foreign('role_id')->on('roles')->references('id')->onDelete('cascade');
+          $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
 
         });
     }

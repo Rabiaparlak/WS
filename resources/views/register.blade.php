@@ -20,42 +20,49 @@
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header"><h3 class="text-center font-weight-light my-4">Hesap Oluştur</h3></div>
                             <div class="card-body">
-                                <form>
+
+                                <div style="background-color:papayawhip">
+
+                                    @foreach($errors->all() as $error)
+                                        <li> {{$error}} </li>
+                                    @endforeach
+</div>
+                                <form action="{{route('register.post')}}" method="post" >
+                                    @csrf
+                                    <input type="hidden" name="role_id" value="1">
                                     <div class="row mb-3">
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
-                                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" name="name" value="{{old('name')}}" required/>
                                                 <label for="inputFirstName">İsim</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" name="surname" value="{{old('surname')}}" />
                                                 <label for="inputLastName">Soy İsim</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                        <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" name="email" value="{{old('email')}}"/>
                                         <label for="inputEmail">E-posta adresi</label>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                                                <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" name="password" />
                                                 <label for="inputPassword">Parola</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
-                                                <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" name="password_confirmation" />
                                                 <label for="inputPasswordConfirm">Parola Tekrarı</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mt-4 mb-0">
-                                        <div class="d-grid"><a class="btn btn-dark btn-block" href="{{route('giris')}}">Hesap Oluştur</a></div>
-                                    </div>
+                                    <button type="submit" >Gonder</button>
                                 </form>
                             </div>
                             <div class="card-footer text-center py-3">
